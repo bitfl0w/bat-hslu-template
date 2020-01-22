@@ -1,0 +1,19 @@
+# tex ignore
+*.aux
+*.log
+*.lof
+*.lol
+*.toc
+*.out
+*.tmp
+*.bak
+*.gz
+*.swp
+*.gnuplot
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.lot
+src/bat_main.pdf

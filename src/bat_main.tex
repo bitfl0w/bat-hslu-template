@@ -1,0 +1,94 @@
+%------------------------------------------------------------------------------------------
+% HOW TO COMPILE THIS DOCUMENT WITH TEXMAKER:  
+% 1. Run BibTeX (F11)
+% 2. Run MakeIndex (F12)
+% 3. Run Quickbuild or equivalent (F1)
+%
+% Sometimes, a second or third cycle is required to get all references right. 
+%------------------------------------------------------------------------------------------
+
+% Festlegung des Allgemeinen Dokumentenformats
+\documentclass[a4paper,table,10pt]{article}
+
+% Layout anwenden
+\usepackage{latex_einstellungen/layout}
+
+%------------------------------------------------------------------------------------------
+% BEGIN OF DOCUMENT
+%------------------------------------------------------------------------------------------
+\begin{document}
+% hier werden die Trennvorschläge inkludiert
+\input{latex_einstellungen/trennung}
+
+% Deckblatt
+\input{latex_einstellungen/deckblatt}
+
+% 1.5 facher Zeilenabstand
+\onehalfspacing
+
+% Titelblatt
+\begin{titlepage}
+\pagestyle{completelyEmpty}
+\includepdf[pages=-,pagecommand={}]{titelblatt/titelblatt_hslu.pdf}
+\end{titlepage}
+
+% einfacher Zeilenabstand
+\singlespacing
+
+%------------------------------------------------------------------------------------------
+% DIVERSE VERZEICHNISSE
+%------------------------------------------------------------------------------------------
+% Inhaltsverzeichnis anzeigen
+\tableofcontents
+
+% Abbildungsverzeichnis
+\newpage
+% Abbildungsverzeichnis soll im Inhaltsverzeichnis auftauchen
+\rhead{\emph{Abbildungsverzeichnis}}
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+\listoffigures
+
+% das Tabellenverzeichnis
+\newpage
+% Tabellenverzeichnis soll im Inhaltsverzeichnis auftauchen
+\rhead{\emph{Tabellenverzeichnis}}
+\addcontentsline{toc}{section}{Tabellenverzeichnis}
+% Tabellenverzeichnis endgültig anzeigen
+\listoftables
+
+% Abkürzungsverzeichnis
+\newpage
+% Abkürzungsverzeichnis soll im Inhaltsverzeichnis auftauchen
+\section*{Abkürzungsverzeichnis}\label{sec:abkuerzungsverzeichnis}
+\input{latex_einstellungen/abkuerzungen}
+
+%------------------------------------------------------------------------------------------
+% KAPITEL 1 ff. 
+%------------------------------------------------------------------------------------------
+\newpage
+\onehalfspacing		% 1,5 facher Zeilenabstand
+
+% einzelne Abschnitte
+\input{1_einleitung}
+\newpage
+% einfacher Zeilenabstand
+
+%------------------------------------------------------------------------------------------
+% QUELLEN- UND LITERATURVERZEICHNIS
+%------------------------------------------------------------------------------------------
+\singlespacing
+\rhead{\emph{Quellen- und Literaturverzeichnis}}
+\bibliographystyle{apacite}
+\bibliography{References}
+
+%------------------------------------------------------------------------------------------
+% ANHANG
+%------------------------------------------------------------------------------------------
+\newpage
+\input{anhang/anhang}
+
+% leere Abschlussseite
+%\newpage
+%\thispagestyle{empty} % erzeugt Seite ohne Kopf- / Fusszeile
+%\mbox{}
+\end{document}
